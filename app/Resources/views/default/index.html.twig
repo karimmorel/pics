@@ -1,34 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Trop bien le site Internet !</h1>
+<div id="menu-button"><i class="fa fa-bars" aria-hidden="true"></i></div>
+<span id="author"><i class="fa fa-heart" aria-hidden="true"></i></span>
+<div id="filter"></div>
+<nav>
+    <div id="selector-list">
+        <a href="#18112017"><div class="selector"><img src="{{ asset('pics/18112017.jpg') }}"/></div></a>
+        <a href="#19112017"><div class="selector"><img src="{{ asset('pics/19112017.jpg') }}"/></div></a>
+        <a href="#20112017"><div class="selector"><img src="{{ asset('pics/20112017.jpg') }}"/></div></a>
+        <a href="#21112017"><div class="selector"><img src="{{ asset('pics/21112017.jpg') }}"/></div></a>
+        <a href="#22112017"><div class="selector"><img src="{{ asset('pics/22112017.jpg') }}"/></div></a>
+        <a href="#23112017"><div class="selector"><img src="{{ asset('pics/23112017.jpg') }}"/></div></a>
+        <a href="#24112017"><div class="selector"><img src="{{ asset('pics/24112017.jpg') }}"/></div></a>
+        <a href="#25112017"><div class="selector"><img src="{{ asset('pics/25112017.jpg') }}"/></div></a>
+    </div>
+</nav>
+<div class="container" id="18112017"><img src="{{ asset('pics/18112017.jpg') }}"/></div>
+<div class="container" id="19112017"><img src="{{ asset('pics/19112017.jpg') }}"/></div>
+<div class="container" id="20112017"><img src="{{ asset('pics/20112017.jpg') }}"/></div>
+<div class="container" id="21112017"><img src="{{ asset('pics/21112017.jpg') }}"/></div>
+<div class="container" id="22112017"><img src="{{ asset('pics/22112017.jpg') }}"/></div>
+<div class="container" id="23112017"><img src="{{ asset('pics/23112017.jpg') }}"/></div>
+<div class="container" id="24112017"><img src="{{ asset('pics/24112017.jpg') }}"/></div>
+<div class="container" id="25112017"><img src="{{ asset('pics/25112017.jpg') }}"/></div>
 {% endblock %}
 
 {% block stylesheets %}
 <style>
-    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 21px; margin-bottom: 1em; }
-    p { margin: 0 0 1em 0; }
-    a { color: #0000F0; }
-    a:hover { text-decoration: none; }
-    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
-    #container { padding: 2em; }
-    #welcome, #status { margin-bottom: 2em; }
-    #welcome h1 span { display: block; font-size: 75%; }
-    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
-    #icon-book { display: none; }
+body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
+h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: 36px; }
+h2 { font-size: 21px; margin-bottom: 1em; }
+p { margin: 0 0 1em 0; }
+a { color: #0000F0; }
+a:hover { text-decoration: none; }
+code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+#wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
+#container { padding: 2em; }
+#welcome, #status { margin-bottom: 2em; }
+#welcome h1 span { display: block; font-size: 75%; }
+#icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
+#icon-book { display: none; }
 
-    @media (min-width: 768px) {
-        #wrapper { width: 80%; margin: 2em auto; }
-        #icon-book { display: inline-block; }
-        #status a, #next a { display: block; }
+@media (min-width: 768px) {
+    #wrapper { width: 80%; margin: 2em auto; }
+    #icon-book { display: inline-block; }
+    #status a, #next a { display: block; }
 
-        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
-    }
+    @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+    .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+}
 </style>
 {% endblock %}
