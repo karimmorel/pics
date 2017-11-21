@@ -2,14 +2,31 @@
 
 {% block body %}
 <div id="content">
-<div class="container" id="18112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/18112017.jpg') }}"></div></div>
-<div class="container" id="19112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/19112017.jpg') }}"/></div></div>
-<div class="container" id="20112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/20112017.jpg') }}"/></div></div>
-<div class="container" id="21112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/21112017.jpg') }}"/></div></div>
-<div class="container" id="22112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/22112017.jpg') }}"/></div></div>
-<div class="container" id="23112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/23112017.jpg') }}"/></div></div>
-<div class="container" id="24112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/24112017.jpg') }}"/></div></div>
-<div class="container" id="25112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/25112017.jpg') }}"/></div></div>
+	<div class="container" id="18112017">
+		<div class="shadow-div">
+			<div class="plus">
+				<div class="plus-span-container">
+					<span>
+						+
+					</span>
+				</div>
+				<div class="text-container">
+					<h1>Chat ninja.</h1>
+					<div class="sep"></div>
+					<p>Chat retrouvé derrière un tas de roseaux.</p>
+					<blockquote>Rhône-Alpes - 2017</blockquote>
+				</div>
+			</div>
+			<img src="{{ asset('pics/18112017.jpg') }}">
+		</div>
+	</div>
+	<div class="container" id="19112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/19112017.jpg') }}"/></div></div>
+	<div class="container" id="20112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/20112017.jpg') }}"/></div></div>
+	<div class="container" id="21112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/21112017.jpg') }}"/></div></div>
+	<div class="container" id="22112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/22112017.jpg') }}"/></div></div>
+	<div class="container" id="23112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/23112017.jpg') }}"/></div></div>
+	<div class="container" id="24112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/24112017.jpg') }}"/></div></div>
+	<div class="container" id="25112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/25112017.jpg') }}"/></div></div>
 </div>
 {% endblock %}
 
@@ -31,13 +48,13 @@ code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break
 #icon-book { display: none; }
 
 @media (min-width: 768px) {
-    #wrapper { width: 80%; margin: 2em auto; }
-    #icon-book { display: inline-block; }
-    #status a, #next a { display: block; }
+	#wrapper { width: 80%; margin: 2em auto; }
+	#icon-book { display: inline-block; }
+	#status a, #next a { display: block; }
 
-    @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-    @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-    .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+	@-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+	@keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+	.sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
 }
 </style>
 {% endblock %}
