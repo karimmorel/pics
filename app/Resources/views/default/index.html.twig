@@ -1,29 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div id="menu-button"><i class="fa fa-bars" aria-hidden="true"></i></div>
-<span id="author"><i class="fa fa-heart" aria-hidden="true"></i></span>
-<div id="filter"></div>
-<nav>
-    <div id="selector-list">
-        <a href="#18112017"><div class="selector"><img src="{{ asset('pics/18112017.jpg') }}"/></div></a>
-        <a href="#19112017"><div class="selector"><img src="{{ asset('pics/19112017.jpg') }}"/></div></a>
-        <a href="#20112017"><div class="selector"><img src="{{ asset('pics/20112017.jpg') }}"/></div></a>
-        <a href="#21112017"><div class="selector"><img src="{{ asset('pics/21112017.jpg') }}"/></div></a>
-        <a href="#22112017"><div class="selector"><img src="{{ asset('pics/22112017.jpg') }}"/></div></a>
-        <a href="#23112017"><div class="selector"><img src="{{ asset('pics/23112017.jpg') }}"/></div></a>
-        <a href="#24112017"><div class="selector"><img src="{{ asset('pics/24112017.jpg') }}"/></div></a>
-        <a href="#25112017"><div class="selector"><img src="{{ asset('pics/25112017.jpg') }}"/></div></a>
-    </div>
-</nav>
-<div class="container" id="18112017"><img src="{{ asset('pics/18112017.jpg') }}"/></div>
-<div class="container" id="19112017"><img src="{{ asset('pics/19112017.jpg') }}"/></div>
-<div class="container" id="20112017"><img src="{{ asset('pics/20112017.jpg') }}"/></div>
-<div class="container" id="21112017"><img src="{{ asset('pics/21112017.jpg') }}"/></div>
-<div class="container" id="22112017"><img src="{{ asset('pics/22112017.jpg') }}"/></div>
-<div class="container" id="23112017"><img src="{{ asset('pics/23112017.jpg') }}"/></div>
-<div class="container" id="24112017"><img src="{{ asset('pics/24112017.jpg') }}"/></div>
-<div class="container" id="25112017"><img src="{{ asset('pics/25112017.jpg') }}"/></div>
+<div id="content">
+<div class="container" id="18112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/18112017.jpg') }}"></div></div>
+<div class="container" id="19112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/19112017.jpg') }}"/></div></div>
+<div class="container" id="20112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/20112017.jpg') }}"/></div></div>
+<div class="container" id="21112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/21112017.jpg') }}"/></div></div>
+<div class="container" id="22112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/22112017.jpg') }}"/></div></div>
+<div class="container" id="23112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/23112017.jpg') }}"/></div></div>
+<div class="container" id="24112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/24112017.jpg') }}"/></div></div>
+<div class="container" id="25112017"><div class="shadow-div"><div class="plus"><div class="plus-span-container"><span>+</span></div></div><img src="{{ asset('pics/25112017.jpg') }}"/></div></div>
+</div>
 {% endblock %}
 
 {% block stylesheets %}
