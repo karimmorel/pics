@@ -42,13 +42,14 @@ $('.plus').click(function(e){
 	if($(this).css('border-radius') == '50px')
 	{
 		$(this).animate({'width':'100%','height':'100%','left':'0px','top':'0px','border-radius':'0'},200);
-		$(this).css({'transition':'all .6s','background':'rgba(21,22,23,.4)'});
+		$(this).css({'transition':'all .6s','background':'rgba(21,22,23,.5)'});
 		$(this).find('.plus-span-container span').toggleClass('rotated');
 		$(this).find('.text-container').show();
 		$(this).find('.text-container h1').delay( 800 ).animate({'opacity':1},400);
 		$(this).find('.text-container .sep').delay( 1100 ).animate({'opacity':1},300);
 		$(this).find('.text-container p').delay( 1400 ).animate({'opacity':1},400);
 		$(this).find('.text-container blockquote').delay( 1700 ).animate({'opacity':1},400);
+		$(this).find('.text-container .signature').delay( 2400 ).animate({'opacity':1},400);
 	}
 	else
 	{
@@ -63,6 +64,7 @@ $('.plus').click(function(e){
 		$(this).find('.text-container .sep').css({'opacity':0});
 		$(this).find('.text-container p').css({'opacity':0});
 		$(this).find('.text-container blockquote').css({'opacity':0});
+		$(this).find('.text-container .signature').css({'opacity':0});
 	}
 });
 

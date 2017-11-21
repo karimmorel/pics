@@ -9,6 +9,21 @@ body
 	text-align:center;
 }
 
+/* Nav Button - #nav-button */
+#nav-button
+{
+	width:32px;
+	height:32px;
+	position:fixed;
+	left:42px;
+	top:42px;
+	cursor:pointer;
+}
+#nav-button img
+{
+	width:100%;
+}
+
 
 /* Photo Container */
 #content
@@ -112,6 +127,16 @@ body
 	font-weight:100;
 	margin:0;
 	line-height: 18px;
+}
+.text-container .signature
+{
+	position:absolute;
+	bottom:12px;
+	right:60px;
+	opacity:0;
+	font-size:18px;
+	font-family: 'Electrolize', sans-serif;
+
 }
 
 
