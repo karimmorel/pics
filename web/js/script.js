@@ -18,9 +18,19 @@ function findPos(el) {
 	return {'x':x, 'y':y};
 }
 
+function findPlusStatus(obj) {
+	if(obj.css('content') == "\"0\"")
+		return 0;
+	else
+		return 1;
+}
+
 $(".shadow-div").mousemove(function(e){
-	if($(this).find('.plus').css('border-radius') == '50px')
+	var findPlus = $(this).find('.plus');
+	var plusStatus = findPlusStatus(findPlus);
+	if(plusStatus == 0)
 	{
+		console.log('oui');
 		var pos = findPos(this);
 		var x = e.pageX-pos.x-25;
 		var y = e.pageY-pos.y-25;
@@ -29,18 +39,29 @@ $(".shadow-div").mousemove(function(e){
 });
 
 $(".shadow-div").mouseleave(function(e){
-	if($(this).find('.plus').css('border-radius') == '50px')
+	var findPlus = $(this).find('.plus');
+	var plusStatus = findPlusStatus(findPlus);
+	if(plusStatus == 0)
+	{
 		$(this).find('.plus').animate({'opacity':'0'},1);
+	}
 });
 $(".shadow-div").mouseenter(function(e){
-	if($(this).find('.plus').css('border-radius') == '50px')
+	var findPlus = $(this).find('.plus');
+	var plusStatus = findPlusStatus(findPlus);
+	if(plusStatus == 0)
+	{
 		$(this).find('.plus').animate({'opacity':'1'},1);
+	}
 });
 
 $('.plus').click(function(e){
 	$(this).css({'transition':'inherit'});
-	if($(this).css('border-radius') == '50px')
+	var findPlus = $(this);
+	var plusStatus = findPlusStatus(findPlus);
+	if(plusStatus == 0)
 	{
+		findPlus.css({'content':'"1"'});
 		$(this).animate({'width':'100%','height':'100%','left':'0px','top':'0px','border-radius':'0'},200);
 		$(this).css({'transition':'all .6s','background':'rgba(21,22,23,.5)'});
 		$(this).find('.plus-span-container span').toggleClass('rotated');
@@ -53,11 +74,12 @@ $('.plus').click(function(e){
 	}
 	else
 	{
+		findPlus.css({'content':'"0"'});
 		var pos = findPos(this);
 		var x = e.pageX-pos.x-25;
 		var y = e.pageY-pos.y-25;
 		$(this).animate({'width':'50px','height':'50px','left':x,'top':y,'border-radius':'50px'},200);
-		$(this).css({'transition':'all .1s','background':'rgba(21,22,23,.9)'});
+		$(this).css({'transition':'inherit','background':'rgba(21,22,23,.9)'});
 		$(this).find('.plus-span-container span').removeClass('rotated');
 		$(this).find('.text-container').hide();
 		$(this).find('.text-container h1').css({'opacity':0});

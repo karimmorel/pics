@@ -57,6 +57,7 @@ body
 /* Plus button on image - .plus */
 .plus
 {
+	content:'0';
 	background:rgba(21,22,23,.9);
 	color:white;
 	border-radius: 50px;
@@ -65,7 +66,6 @@ body
 	position:absolute;
 	right:24px;
 	top:-55px;
-	transition: all .1s;
 	text-align:center;
 	line-height:50px;
 	box-shadow: 0 3px 5px rgba(0,0,0,.3);
