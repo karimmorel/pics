@@ -66,11 +66,11 @@ $('.plus').click(function(e){
 		$(this).css({'transition':'all .6s','background':'rgba(21,22,23,.5)'});
 		$(this).find('.plus-span-container span').toggleClass('rotated');
 		$(this).find('.text-container').show();
-		$(this).find('.text-container h1').delay( 800 ).animate({'opacity':1},400);
-		$(this).find('.text-container .sep').delay( 1100 ).animate({'opacity':1},300);
-		$(this).find('.text-container p').delay( 1400 ).animate({'opacity':1},400);
-		$(this).find('.text-container blockquote').delay( 1700 ).animate({'opacity':1},400);
-		$(this).find('.text-container .signature').delay( 2400 ).animate({'opacity':1},400);
+		$(this).find('.text-container h1').delay( 800 ).animate({'opacity':1},500);
+		$(this).find('.text-container .sep').delay( 1000 ).animate({'opacity':1},300);
+		$(this).find('.text-container p').delay( 1300 ).animate({'opacity':1},500);
+		$(this).find('.text-container blockquote').delay( 1700 ).animate({'opacity':1},500);
+		$(this).find('.text-container .signature').delay( 2200 ).animate({'opacity':1},500);
 	}
 	else
 	{
