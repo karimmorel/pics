@@ -3,6 +3,17 @@ $(document).ready(function(){
 });
 
 
+
+// Nav
+
+$('#nav-button').click(function(){
+	if($('nav').css('display') == "none")
+		$('nav').show();
+	else
+		$('nav').hide();
+})
+
+
 // Gestion des divs .plus sur les images pour plus d'infos
 
 function findPos(el) {
@@ -66,11 +77,11 @@ $('.plus').click(function(e){
 		$(this).css({'transition':'all .6s','background':'rgba(21,22,23,.5)'});
 		$(this).find('.plus-span-container span').toggleClass('rotated');
 		$(this).find('.text-container').show();
-		$(this).find('.text-container h1').delay( 800 ).animate({'opacity':1},500);
-		$(this).find('.text-container .sep').delay( 1000 ).animate({'opacity':1},300);
-		$(this).find('.text-container p').delay( 1300 ).animate({'opacity':1},500);
-		$(this).find('.text-container blockquote').delay( 1700 ).animate({'opacity':1},500);
-		$(this).find('.text-container .signature').delay( 2200 ).animate({'opacity':1},500);
+		$(this).find('.text-container h1').delay( 800 ).animate({'opacity':1},600);
+		$(this).find('.text-container .sep').delay( 1200 ).animate({'opacity':1,'width':'100px'},300);
+		$(this).find('.text-container p').delay( 1500 ).animate({'opacity':1},600);
+		$(this).find('.text-container blockquote').delay( 1800 ).animate({'opacity':1},600);
+		$(this).find('.text-container .signature').delay( 2400 ).animate({'opacity':1},500);
 	}
 	else
 	{
@@ -83,7 +94,7 @@ $('.plus').click(function(e){
 		$(this).find('.plus-span-container span').removeClass('rotated');
 		$(this).find('.text-container').hide();
 		$(this).find('.text-container h1').css({'opacity':0});
-		$(this).find('.text-container .sep').css({'opacity':0});
+		$(this).find('.text-container .sep').css({'opacity':.1,'width':'0px'});
 		$(this).find('.text-container p').css({'opacity':0});
 		$(this).find('.text-container blockquote').css({'opacity':0});
 		$(this).find('.text-container .signature').css({'opacity':0});
