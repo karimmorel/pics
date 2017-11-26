@@ -8,9 +8,25 @@ $(document).ready(function(){
 
 $('#nav-button').click(function(){
 	if($('nav').css('display') == "none")
+	{
+		$('#content').toggleClass('blur');
 		$('nav').show();
+		$('nav .nav-container').animate({'width':'500px'},500);
+		$('nav .nav-container h1').delay(600).animate({'opacity':'1'},500);
+		$('nav .nav-container blockquote').delay(800).animate({'opacity':'1'},500);
+		$('nav .nav-container .social').delay(1000).animate({'opacity':'1'},500);
+		$('nav').animate({'opacity':'1'},0);
+	}
 	else
-		$('nav').hide();
+	{
+		$('#content').removeClass('blur');
+		$('nav').animate({'opacity':'0'},500);
+		$('nav .nav-container').animate({'width':'0'},500);
+		$('nav .nav-container h1').css({'opacity':'0'});
+		$('nav .nav-container blockquote').css({'opacity':'0'});
+		$('nav .nav-container .social').css({'opacity':'0'});
+		$('nav').delay(200).hide(0);
+	}
 })
 
 
