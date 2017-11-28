@@ -120,6 +120,23 @@ nav .nav-container .nav-vertical .social a
 	padding:0 4px 0 6px;
 	text-decoration: none;
 }
+nav .nav-container .nav-vertical .social .link-container
+{
+	box-sizing: border-box;
+}
+nav .nav-container .nav-vertical .social .link-container .sep
+{
+	height:1px;
+	width:0px;
+	background:white;
+	display:inline-block;
+	vertical-align: bottom;
+	transition: all .3s;
+}
+nav .nav-container .nav-vertical .social .link-container:hover .sep
+{
+	width:16px;
+}
 nav .nav-container .website
 {
 	position:absolute;
