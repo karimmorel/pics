@@ -24,6 +24,20 @@ body
 {
 	width:100%;
 }
+   
+#nav-button svg
+{
+	transition: y .3s;
+	animation: all .3s;
+}
+rect
+{
+	transition:all .3s;
+}
+
+
+
+
 
 /* Nav Style - nav */
 nav
@@ -34,14 +48,15 @@ nav
 	top:0;
 	left:0;
 	z-index:3;
-	color:black;
+	color:white;
 	display:none;
 	transition:all 1s;
-	opacity:0;
+	background:rgba(46,46,46,.3);
 }
 nav .nav-container
 {
 	width:0;
+	max-width:400px;
 	box-shadow: 0 3px 5px rgba(0,0,0,.3);
 	margin:auto;
 	height:100%;
@@ -49,14 +64,20 @@ nav .nav-container
 	left:0;
 	top:0;
 	text-align:left;
-	background:rgba(255,255,255,1);
+	background: -webkit-linear-gradient(120deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
+    background: -o-linear-gradient(120deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
+    background: linear-gradient(210deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
+    background-size: 600% 600%;
+    -webkit-animation: couleur 12s ease infinite;
+    -moz-animation: couleur 12s ease infinite;
+    animation: couleur 12s ease infinite;
 	overflow: hidden;
 }
 nav .nav-container .nav-vertical
 {
 	position:absolute;
 	width:100%;
-	top:25%;
+	top:116px;
 	left:0;
 	padding:0 0 0 42px;
 	transition:all .6s;
@@ -95,7 +116,24 @@ nav .nav-container .nav-vertical .social
 }
 nav .nav-container .nav-vertical .social a
 {
-	color:black;
+	color:white;
+	padding:0 4px 0 6px;
+	text-decoration: none;
+}
+nav .nav-container .website
+{
+	position:absolute;
+	bottom:0;
+	font-size:16px;
+	left:0;
+	padding:0 0 42px 0;
+	text-align:center;
+	width:100%;
+	opacity:0;
+}
+nav .nav-container .website a 
+{
+	color:white;
 	padding:0 4px 0 6px;
 	text-decoration: none;
 }
@@ -222,7 +260,7 @@ nav .nav-container .nav-vertical .social a
 /* Class Effacée pour moins d'opacity - .erased */
 .erased
 {
-	opacity:.3;
+	opacity:.4;
 }
 
 /* Class Floue pour créer du blur - .blur  */
@@ -240,4 +278,37 @@ nav .nav-container .nav-vertical .social a
     -ms-transform: rotate(45deg);  /* IE 9 */
     -o-transform: rotate(45deg);  /* Opera 10.50-12.00 */
     transform: rotate(45deg);  /* Firefox 16+, IE 10+, Opera 12.10+ */
+}
+
+
+
+/* Animation couleur pour fond nav */
+@-webkit-keyframes couleur {
+    0%,
+    100% {
+        background-position: 68% 0
+    }
+    50% {
+        background-position: 33% 100%
+    }
+}
+
+@-moz-keyframes couleur {
+    0%,
+    100% {
+        background-position: 68% 0
+    }
+    50% {
+        background-position: 33% 100%
+    }
+}
+
+@keyframes couleur {
+    0%,
+    100% {
+        background-position: 68% 0
+    }
+    50% {
+        background-position: 33% 100%
+    }
 }

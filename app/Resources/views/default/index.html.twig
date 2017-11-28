@@ -1,18 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div id="nav-button"><img src="{{ asset('icon/nav.png') }}" alt="Nav Button"/></div>
+<div id="nav-button">
+<svg version="1.1" id="calque-nav" fill="#333" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 611 611" style="enable-background:new 0 0 611 611;" xml:space="preserve">
+<rect id="rect-one" x="-0.4" y="404.5" width="611.3" height="98.5" transform="matrix(1.00000000, 0.00000000, 0.00000000, 1.00000000, 0, 0)"/>
+<rect id="rect-two" x="-0.4" y="109" width="611.3" height="98.5"/>
+</svg>
+</div>
 <nav>
 	<div class="nav-container">
 		<div class="nav-vertical">
 			<h1>Karim Morel</h1>
 			<blockquote class="erased">- Un jour, une image.</blockquote>
 			<div class="social">
-				<a href="#" target="_blank">Youtube</a><br/>
+				<a href="https://www.youtube.com/channel/UCbFB4IHyLqwcz_VVKAaJbaw/videos" target="_blank">Youtube</a><br/>
 				<a href="#" target="_blank">Blog</a><br/>
 				<a href="#" target="_blank">Instagram</a><br/><br/>
-				<a class="erased" href="http://www.karimmorel.fr" target="_blank">karimmorel.fr</a>
 			</div>
+		</div>
+		<div class="website">
+			<a href="http://www.karimmorel.fr" target="_blank">karimmorel.fr</a>
 		</div>
 	</div>
 </nav>
