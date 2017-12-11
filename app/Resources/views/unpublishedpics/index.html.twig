@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Unpublishedpics list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Shortname</th>
+                <th>Description</th>
+                <th>Shortdescription</th>
+                <th>Country</th>
+                <th>Region</th>
+                <th>City</th>
+                <th>Theme</th>
+                <th>Type</th>
+                <th>Author</th>
+                <th>Subject</th>
+                <th>Lat</th>
+                <th>Lng</th>
+                <th>Gmapslink</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Picdate</th>
+                <th>Backgroundcolor</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for unpublishedPic in unpublishedPics %}
+            <tr>
+                <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}">{{ unpublishedPic.id }}</a></td>
+                <td>{{ unpublishedPic.name }}</td>
+                <td>{{ unpublishedPic.shortName }}</td>
+                <td>{{ unpublishedPic.description }}</td>
+                <td>{{ unpublishedPic.shortdescription }}</td>
+                <td>{{ unpublishedPic.country }}</td>
+                <td>{{ unpublishedPic.region }}</td>
+                <td>{{ unpublishedPic.city }}</td>
+                <td>{{ unpublishedPic.theme }}</td>
+                <td>{{ unpublishedPic.type }}</td>
+                <td>{{ unpublishedPic.author }}</td>
+                <td>{{ unpublishedPic.subject }}</td>
+                <td>{{ unpublishedPic.lat }}</td>
+                <td>{{ unpublishedPic.lng }}</td>
+                <td>{{ unpublishedPic.gmapslink }}</td>
+                <td>{% if unpublishedPic.createdAt %}{{ unpublishedPic.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if unpublishedPic.updatedAt %}{{ unpublishedPic.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if unpublishedPic.picdate %}{{ unpublishedPic.picdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ unpublishedPic.backgroundcolor }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('unpublishedpics_edit', { 'id': unpublishedPic.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('unpublishedpics_new') }}">Create a new unpublishedPic</a>
+        </li>
+    </ul>
+{% endblock %}

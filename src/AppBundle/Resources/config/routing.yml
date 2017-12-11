@@ -1,0 +1,4 @@
+app_unpublishedpics:
+    resource: "@AppBundle/Resources/config/routing/unpublishedpics.yml"
+    prefix:   /unpublishedpics
+
