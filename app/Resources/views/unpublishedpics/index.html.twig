@@ -1,73 +1,79 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" />
+{% endblock %}
 {% block body %}
-    <h1>Unpublishedpics list</h1>
-
-    <table>
+<div class="container">
+    <h1>Liste des photos</h1>
+    <br/>
+    <a href="{{ path('home') }}"><button type="button" class="btn btn-info">Page Photo</button></a>
+    <a href="{{ path('unpublishedpics_new') }}"><button type="button" class="btn btn-primary">Ajouter une image</button></a>
+    <br/>
+    <br/>
+    <h2>Photos publiées</h2>
+    <br/>
+    <table class="table-bordered table-sm table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Shortname</th>
+                <th>Image</th>
+                <th>Nom</th>
                 <th>Description</th>
-                <th>Shortdescription</th>
-                <th>Country</th>
-                <th>Region</th>
-                <th>City</th>
-                <th>Theme</th>
-                <th>Type</th>
-                <th>Author</th>
-                <th>Subject</th>
-                <th>Lat</th>
-                <th>Lng</th>
-                <th>Gmapslink</th>
-                <th>Createdat</th>
-                <th>Updatedat</th>
-                <th>Picdate</th>
-                <th>Backgroundcolor</th>
+                <th>Localisation</th>
+                <th>Publiée ?</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for unpublishedPic in unpublishedPics %}
+            {% for unpublishedPic in unpublishedPics %}
+            {% if unpublishedPic.displayPic %}
             <tr>
-                <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}">{{ unpublishedPic.id }}</a></td>
-                <td>{{ unpublishedPic.name }}</td>
-                <td>{{ unpublishedPic.shortName }}</td>
+                <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}"><img src="{{ asset('uploads/non_publiee/' ~ unpublishedPic.type) }}" width="200"/></a></td>
+                <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}">{{ unpublishedPic.name }}</a></td>
                 <td>{{ unpublishedPic.description }}</td>
-                <td>{{ unpublishedPic.shortdescription }}</td>
-                <td>{{ unpublishedPic.country }}</td>
-                <td>{{ unpublishedPic.region }}</td>
-                <td>{{ unpublishedPic.city }}</td>
-                <td>{{ unpublishedPic.theme }}</td>
-                <td>{{ unpublishedPic.type }}</td>
-                <td>{{ unpublishedPic.author }}</td>
-                <td>{{ unpublishedPic.subject }}</td>
-                <td>{{ unpublishedPic.lat }}</td>
-                <td>{{ unpublishedPic.lng }}</td>
-                <td>{{ unpublishedPic.gmapslink }}</td>
-                <td>{% if unpublishedPic.createdAt %}{{ unpublishedPic.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if unpublishedPic.updatedAt %}{{ unpublishedPic.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if unpublishedPic.picdate %}{{ unpublishedPic.picdate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ unpublishedPic.backgroundcolor }}</td>
+                <td>{{ unpublishedPic.country }} - {{ unpublishedPic.region }} ( {{ unpublishedPic.city }} )</td>
+                <td>{% if unpublishedPic.displayPic %}Oui{% else %}Non{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('unpublishedpics_edit', { 'id': unpublishedPic.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('unpublishedpics_edit', { 'id': unpublishedPic.id }) }}">Modifier</a>
                 </td>
             </tr>
-        {% endfor %}
+            {% endif %}
+            {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('unpublishedpics_new') }}">Create a new unpublishedPic</a>
-        </li>
-    </ul>
+    <br/>
+    <br/>
+    <h2>Photos non publiées</h2>
+    <br/>
+    <table class="table-bordered table-sm table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Localisation</th>
+                <th>Publiée ?</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for unpublishedPic in unpublishedPics %}
+            {% if unpublishedPic.displayPic == 0 %}
+            <tr>
+                <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}"><img src="{{ asset('uploads/non_publiee/' ~ unpublishedPic.type) }}" width="200"/></a></td>
+                <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}">{{ unpublishedPic.name }}</a></td>
+                <td>{{ unpublishedPic.description }}</td>
+                <td>{{ unpublishedPic.country }} - {{ unpublishedPic.region }} ( {{ unpublishedPic.city }} )</td>
+                <td>{% if unpublishedPic.displayPic %}Oui{% else %}Non{% endif %}</td>
+                <td>
+                    <a href="{{ path('unpublishedpics_edit', { 'id': unpublishedPic.id }) }}">Modifier</a>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('css/bootstrap/js/bootstrap.min.js') }}"></script>
 {% endblock %}

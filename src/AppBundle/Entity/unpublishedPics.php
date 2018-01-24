@@ -147,6 +147,13 @@ class unpublishedPics
      */
     private $backgroundcolor;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="display_pic", type="boolean")
+     */
+    private $displayPic;
+
 
     /**
      * Get id
@@ -589,5 +596,28 @@ class unpublishedPics
     {
         return $this->backgroundcolor;
     }
-}
 
+    /**
+     * Set displayPic
+     *
+     * @param boolean $displayPic
+     *
+     * @return unpublishedPics
+     */
+    public function setDisplayPic($displayPic)
+    {
+        $this->displayPic = $displayPic;
+
+        return $this;
+    }
+
+    /**
+     * Get displayPic
+     *
+     * @return boolean
+     */
+    public function getDisplayPic()
+    {
+        return $this->displayPic;
+    }
+}

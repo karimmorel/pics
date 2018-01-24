@@ -3,10 +3,11 @@ body
 	width:100%;
 	padding:0;
 	margin:0;
-	background:rgb(252,253,250);
+	background:rgb(255,255,255);
 	background-size: cover;
 	font-family: 'Open Sans', sans-serif;
 	text-align:center;
+	color:#3b444f;
 }
 
 /* Nav Button - #nav-button */
@@ -55,7 +56,7 @@ nav
 }
 nav .nav-container
 {
-	width:0;
+	width:100%;
 	max-width:400px;
 	box-shadow: 0 3px 5px rgba(0,0,0,.3);
 	margin:auto;
@@ -68,9 +69,9 @@ nav .nav-container
     background: -o-linear-gradient(120deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
     background: linear-gradient(210deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
     background-size: 600% 600%;
-    -webkit-animation: couleur 12s ease infinite;
-    -moz-animation: couleur 12s ease infinite;
-    animation: couleur 12s ease infinite;
+    -webkit-animation: couleur 24s ease infinite;
+    -moz-animation: couleur 24s ease infinite;
+    animation: couleur 24s ease infinite;
 	overflow: hidden;
 }
 nav .nav-container .nav-vertical
@@ -107,6 +108,7 @@ nav .nav-container .nav-vertical blockquote
 	font-style:italic;
 	font-size:14px;
 	opacity:0;
+	width:calc(80% - 28px);
 }
 nav .nav-container .nav-vertical .social
 {
@@ -183,6 +185,11 @@ nav .nav-container .website a
 	box-shadow: 0 3px 5px rgba(0,0,0,.3);
 }
 .container .shadow-div img
+{
+	width:100%;
+	display:block;
+}
+.container .shadow-div video
 {
 	width:100%;
 	display:block;

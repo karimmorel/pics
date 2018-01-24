@@ -22,3 +22,8 @@ unpublishedpics_delete:
     path:     /{id}/delete
     defaults: { _controller: "AppBundle:unpublishedPics:delete" }
     methods:  DELETE
+
+unpublishedpics_publishlast:
+    path:     /publishlast
+    defaults: { _controller: "AppBundle:unpublishedPics:movepublished" }
+    methods:  GET

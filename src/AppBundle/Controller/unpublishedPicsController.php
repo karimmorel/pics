@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\unpublishedPics;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Unpublishedpic controller.
@@ -33,14 +34,25 @@ class unpublishedPicsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $unpublishedPic = new Unpublishedpic();
+        $unpublishedPic = new Unpublishedpics();
         $form = $this->createForm('AppBundle\Form\unpublishedPicsType', $unpublishedPic);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Récupère l'image
+            $file = $unpublishedPic->getType();
+            // Créer un nom pour l'image sauvegardée
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            //Défini le nouveau nom à l'objet unpublishedPic pour le sauvegarder en BDD
+            $unpublishedPic->setType($fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($unpublishedPic);
             $em->flush();
+            // Déplace vers le dossier qui sauvegarde les images non publiées
+            $file->move(
+                $this->getParameter('dossier_image_non_publiee'),
+                $fileName
+            );
 
             return $this->redirectToRoute('unpublishedpics_show', array('id' => $unpublishedPic->getId()));
         }
@@ -71,11 +83,16 @@ class unpublishedPicsController extends Controller
      */
     public function editAction(Request $request, unpublishedPics $unpublishedPic)
     {
+        $pic_name = $unpublishedPic->getType();
+        $unpublishedPic->setType(
+            new File($this->getParameter('dossier_image_non_publiee').'/'.$pic_name)
+        );
         $deleteForm = $this->createDeleteForm($unpublishedPic);
         $editForm = $this->createForm('AppBundle\Form\unpublishedPicsType', $unpublishedPic);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $unpublishedPic->setType($pic_name);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('unpublishedpics_edit', array('id' => $unpublishedPic->getId()));
@@ -106,6 +123,35 @@ class unpublishedPicsController extends Controller
         return $this->redirectToRoute('unpublishedpics_index');
     }
 
+    public function movepublishedAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $undisplayed = 0;
+
+        $ip_address = $this->container->get('request_stack')->getCurrentRequest()->getClientIp();
+        $server_ip = '51.15.174.166';
+        dump($ip_address);die();
+
+        $lastUnpublished = $em->getRepository('AppBundle:unpublishedPics')->findOneBy(
+           array('displayPic'=>$undisplayed),
+           array('createdAt' => 'ASC')
+       );
+
+        if($lastUnpublished && $ip_address == $server_ip)
+        {
+            $lastUnpublished->setDisplayPic(1);
+            $this->getDoctrine()->getManager()->flush();
+        }
+
+        $unpublishedPics = $em->getRepository('AppBundle:unpublishedPics')->findAll();
+
+        return $this->render('unpublishedpics/index.html.twig', array(
+            'unpublishedPics' => $unpublishedPics,
+        ));
+    }
+
+
     /**
      * Creates a form to delete a unpublishedPic entity.
      *
@@ -116,9 +162,9 @@ class unpublishedPicsController extends Controller
     private function createDeleteForm(unpublishedPics $unpublishedPic)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('unpublishedpics_delete', array('id' => $unpublishedPic->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
+        ->setAction($this->generateUrl('unpublishedpics_delete', array('id' => $unpublishedPic->getId())))
+        ->setMethod('DELETE')
+        ->getForm()
         ;
     }
 }
