@@ -29,8 +29,6 @@ class unpublishedPicsType extends AbstractType
         ->add('lat')
         ->add('lng')
         ->add('gmapslink')
-        ->add('createdAt')
-        ->add('updatedAt')
         ->add('picdate')
         ->add('backgroundcolor')
         ->add('displayPic');

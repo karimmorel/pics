@@ -6,6 +6,7 @@ use AppBundle\Entity\unpublishedPics;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Unpublishedpic controller.
@@ -45,6 +46,8 @@ class unpublishedPicsController extends Controller
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             //Défini le nouveau nom à l'objet unpublishedPic pour le sauvegarder en BDD
             $unpublishedPic->setType($fileName);
+            $unpublishedPic->setCreatedAt(new \DateTime('now'));
+            $unpublishedPic->setUpdatedAt(new \DateTime('now'));
             $em = $this->getDoctrine()->getManager();
             $em->persist($unpublishedPic);
             $em->flush();
@@ -93,6 +96,7 @@ class unpublishedPicsController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $unpublishedPic->setType($pic_name);
+            $unpublishedPic->setUpdatedAt(new \DateTime('now'));
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('unpublishedpics_edit', array('id' => $unpublishedPic->getId()));
@@ -149,6 +153,27 @@ class unpublishedPicsController extends Controller
         return $this->render('unpublishedpics/index.html.twig', array(
             'unpublishedPics' => $unpublishedPics,
         ));
+    }
+
+    public function fiveLastPhotosAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $displayed = 1;
+
+
+        $lastPublishedPics = $em->getRepository('AppBundle:unpublishedPics')->findBy(
+           array('displayPic'=>$displayed),
+           array('createdAt' => 'DESC'),
+           3
+       );
+
+        $data = $this->get('jms_serializer')->serialize($lastPublishedPics, 'json');
+
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 
 

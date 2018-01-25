@@ -4,8 +4,6 @@
 {% endblock %}
 {% block body %}
 <div class="container">
-    <h1>Liste des photos</h1>
-    <br/>
     <a href="{{ path('home') }}"><button type="button" class="btn btn-info">Page Photo</button></a>
     <a href="{{ path('unpublishedpics_new') }}"><button type="button" class="btn btn-primary">Ajouter une image</button></a>
     <br/>
@@ -72,6 +70,7 @@
             {% endfor %}
         </tbody>
     </table>
+    <quote>Garder comme idée de créer une map qui regroupe tous les points de mes photos sur une carte du monde et recréer un chemin.</quote>
 </div>
 {% endblock %}
 {% block javascripts %}

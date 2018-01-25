@@ -76,3 +76,14 @@ fos_user:
     from_email:
         address: "karim-morel@outlook.fr"
         sender_name: "Symfony - Site Photo"
+
+fos_rest:
+    body_converter:
+        enabled: true
+    view:
+        formats: { json: true, xml: false, rss: false }
+    serializer:
+        serialize_null: true
+
+sensio_framework_extra:
+    view: { annotations: false }
