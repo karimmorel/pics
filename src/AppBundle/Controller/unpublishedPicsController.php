@@ -90,9 +90,11 @@ class unpublishedPicsController extends Controller
     public function editAction(Request $request, unpublishedPics $unpublishedPic)
     {
         $pic_name = $unpublishedPic->getType();
-        $unpublishedPic->setType(
-            new File($this->getParameter('dossier_image_non_publiee').'/'.$pic_name)
-        );
+        $get_photo = new File($this->getParameter('dossier_image_non_publiee').'/'.$pic_name);
+        if($get_photo)
+        {
+            $unpublishedPic->setType($get_photo);
+        }
         $deleteForm = $this->createDeleteForm($unpublishedPic);
         $editForm = $this->createForm('AppBundle\Form\unpublishedPicsType', $unpublishedPic);
         $editForm->handleRequest($request);
@@ -141,9 +143,9 @@ class unpublishedPicsController extends Controller
         dump($ip_address);die();
 
         $lastUnpublished = $em->getRepository('AppBundle:unpublishedPics')->findOneBy(
-           array('displayPic'=>$undisplayed),
-           array('createdAt' => 'ASC')
-       );
+         array('displayPic'=>$undisplayed),
+         array('createdAt' => 'ASC')
+     );
 
         if($lastUnpublished && $ip_address == $server_ip)
         {
@@ -166,10 +168,10 @@ class unpublishedPicsController extends Controller
         $APIPhotos = 3;
 
         $lastPublishedPics = $em->getRepository('AppBundle:unpublishedPics')->findBy(
-           array('displayPic'=>$displayed),
-           array('createdAt' => 'DESC'),
-           $APIPhotos
-       );
+         array('displayPic'=>$displayed),
+         array('createdAt' => 'DESC'),
+         $APIPhotos
+     );
 
         $data = $this->get('jms_serializer')->serialize($lastPublishedPics, 'json');
 
