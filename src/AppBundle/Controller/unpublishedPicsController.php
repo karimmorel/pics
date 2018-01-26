@@ -36,6 +36,9 @@ class unpublishedPicsController extends Controller
     public function newAction(Request $request)
     {
         $unpublishedPic = new Unpublishedpics();
+        $unpublishedPic->setPicDate(new \DateTime('now'));
+        $unpublishedPic->setAuthor('Karim Morel');
+        $unpublishedPic->setBackgroundColor('000');
         $form = $this->createForm('AppBundle\Form\unpublishedPicsType', $unpublishedPic);
         $form->handleRequest($request);
 
@@ -160,12 +163,12 @@ class unpublishedPicsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $displayed = 1;
-
+        $APIPhotos = 3;
 
         $lastPublishedPics = $em->getRepository('AppBundle:unpublishedPics')->findBy(
            array('displayPic'=>$displayed),
            array('createdAt' => 'DESC'),
-           3
+           $APIPhotos
        );
 
         $data = $this->get('jms_serializer')->serialize($lastPublishedPics, 'json');

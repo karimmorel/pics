@@ -3,16 +3,182 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" />
 {% endblock %}
 {% block body %}
+<div class="container">
     <h1>Nouvelle image</h1>
-
+    <br/>
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <table class="table-bordered table-sm table">
+        <thead>
+            <tr>
+                <th>
+                    Propriété
+                </th>
+                <th>
+                    Valeur
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>
+                {{ form_label(form.name) }}
+                {{ form_errors(form.name) }}
+            </th>
+            <th>
+                {{ form_widget(form.name) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.shortName) }}
+                {{ form_errors(form.shortName) }}
+            </th>
+            <th>
+                {{ form_widget(form.shortName) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.description) }}
+                {{ form_errors(form.description) }}
+            </th>
+            <th>
+                {{ form_widget(form.description) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.shortdescription) }}
+                {{ form_errors(form.shortdescription) }}
+            </th>
+            <th>
+                {{ form_widget(form.shortdescription) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.country) }}
+                {{ form_errors(form.country) }}
+            </th>
+            <th>
+                {{ form_widget(form.country) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.region) }}
+                {{ form_errors(form.region) }}
+            </th>
+            <th>
+                {{ form_widget(form.region) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.city) }}
+                {{ form_errors(form.city) }}
+            </th>
+            <th>
+                {{ form_widget(form.city) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.theme) }}
+                {{ form_errors(form.theme) }}
+            </th>
+            <th>
+                {{ form_widget(form.theme) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.type) }}
+                {{ form_errors(form.type) }}
+            </th>
+            <th>
+                {{ form_widget(form.type) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.author) }}
+                {{ form_errors(form.author) }}
+            </th>
+            <th>
+                {{ form_widget(form.author) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.subject) }}
+                {{ form_errors(form.subject) }}
+            </th>
+            <th>
+                {{ form_widget(form.subject) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.lat) }}
+                {{ form_errors(form.lat) }}
+            </th>
+            <th>
+                {{ form_widget(form.lat) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.lng) }}
+                {{ form_errors(form.lng) }}
+            </th>
+            <th>
+                {{ form_widget(form.lng) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.gmapslink) }}
+                {{ form_errors(form.gmapslink) }}
+            </th>
+            <th>
+                {{ form_widget(form.gmapslink) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.picdate) }}
+                {{ form_errors(form.picdate) }}
+            </th>
+            <th>
+                {{ form_widget(form.picdate) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.backgroundcolor) }}
+                {{ form_errors(form.backgroundcolor) }}
+            </th>
+            <th>
+                {{ form_widget(form.backgroundcolor) }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                {{ form_label(form.displayPic) }}
+                {{ form_errors(form.displayPic) }}
+            </th>
+            <th>
+                {{ form_widget(form.displayPic) }}
+            </th>
+        </tr>
+        </tbody>
+</table>
+        <button class="btn btn-success" type="submit" value="Ajouter">Ajouter</button>
+
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('unpublishedpics_index') }}">Back to the list</a>
-        </li>
-    </ul>
+<br/>
+            <a href="{{ path('unpublishedpics_index') }}"><button type="button" class="btn btn-info">Retour à la liste</button></a>
+</div>
 {% endblock %}

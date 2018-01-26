@@ -121,6 +121,10 @@ $(".shadow-div").mouseenter(function(e){
 
 $('.plus').click(function(e){
 	$(this).css({'transition':'inherit'});
+	$(this).find('*').clearQueue();
+	$(this).find('*').dequeue();
+	$(this).find('*').stop();
+	console.log('enculé');
 	var findPlus = $(this);
 	var plusStatus = findPlusStatus(findPlus);
 	if(plusStatus == 0)
