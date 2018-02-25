@@ -140,12 +140,11 @@ class unpublishedPicsController extends Controller
 
         $ip_address = $this->container->get('request_stack')->getCurrentRequest()->getClientIp();
         $server_ip = '51.15.174.166';
-        dump($ip_address);die();
 
         $lastUnpublished = $em->getRepository('AppBundle:unpublishedPics')->findOneBy(
-         array('displayPic'=>$undisplayed),
-         array('createdAt' => 'ASC')
-     );
+           array('displayPic'=>$undisplayed),
+           array('id' => 'DESC')
+       );
 
         if($lastUnpublished && $ip_address == $server_ip)
         {
@@ -165,13 +164,13 @@ class unpublishedPicsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $displayed = 1;
-        $APIPhotos = 3;
+        $APIPhotos = 5;
 
         $lastPublishedPics = $em->getRepository('AppBundle:unpublishedPics')->findBy(
-         array('displayPic'=>$displayed),
-         array('createdAt' => 'DESC'),
-         $APIPhotos
-     );
+           array('displayPic'=>$displayed),
+           array('id' => 'DESC'),
+           $APIPhotos
+       );
 
         $data = $this->get('jms_serializer')->serialize($lastPublishedPics, 'json');
 
@@ -179,6 +178,32 @@ class unpublishedPicsController extends Controller
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;
+    }
+
+
+    public function eightFollowingPhotosAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $displayed = 1;
+        $followingPhotos = 7;
+
+        $currentLastPhoto = $request->get('lastpic');
+
+        $pics = $em->getRepository('AppBundle:unpublishedPics')->findBy(
+            array('displayPic'=>$displayed),
+            array('id' => 'DESC'),
+            $followingPhotos,
+            $currentLastPhoto
+        );
+
+        $data = $this->get('jms_serializer')->serialize($pics, 'json');
+
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+
     }
 
 

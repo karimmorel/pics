@@ -1,4 +1,15 @@
 {% extends 'base.html.twig' %}
+{% block analytics %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84217002-2"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-84217002-2');
+</script>
+{% endblock %}
 {% block body %}
 <div id="nav-button">
 	<svg version="1.1" id="calque-nav" fill="#333" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -42,7 +53,7 @@
 					<span class="signature">{{ pic.theme | lower}}_</span>
 				</div>
 			</div>
-			{% if pic.type|split('.')|last == 'jpeg' %}
+			{% if pic.type|split('.')|last == 'jpeg' or pic.type|split('.')|last == 'png' %}
 			<img src="{{ asset('uploads/non_publiee/' ~ pic.type) }}"/>
 			{% elseif  pic.type|split('.')|last == 'mp4' or pic.type|split('.')|last == 'gif' %}
 			<video controls autoplay>
@@ -52,6 +63,9 @@
 			</div>
 		</div>
 		{% endfor %}
+	</div>
+	<div class="loader">
+		+
 	</div>
 	{% endblock %}
 

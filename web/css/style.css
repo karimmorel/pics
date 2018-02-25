@@ -281,6 +281,24 @@ nav .nav-container .website a
 
 }
 
+/* Loader */
+
+.loader
+{
+	text-align:center;
+	font-size:18px;
+	margin:auto;
+	margin-bottom:30px;
+	height:34px;
+	width:34px;
+	border-radius: 100%;
+	line-height:34px;
+	cursor:pointer;
+	background:#4EB2CC;
+	color:white;
+}
+
+
 
 /* Class Effacée pour moins d'opacity - .erased */
 .erased

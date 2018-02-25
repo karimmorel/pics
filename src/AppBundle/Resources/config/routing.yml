@@ -12,6 +12,11 @@ lastpublishedpics:
     defaults: { _controller: "AppBundle:unpublishedPics:fiveLastPhotos" }
     methods: GET
 
+loadeightfollowingpics:
+    path: /loadeightfollowingpics/{lastpic}
+    defaults: { _controller: "AppBundle:unpublishedPics:eightFollowingPhotos" }
+    methods: GET
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
