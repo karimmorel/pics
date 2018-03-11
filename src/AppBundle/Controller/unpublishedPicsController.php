@@ -143,7 +143,7 @@ class unpublishedPicsController extends Controller
 
         $lastUnpublished = $em->getRepository('AppBundle:unpublishedPics')->findOneBy(
            array('displayPic'=>$undisplayed),
-           array('id' => 'DESC')
+           array('id' => 'ASC')
        );
 
         if($lastUnpublished && $ip_address == $server_ip)
