@@ -25,7 +25,7 @@ body
 {
 	width:100%;
 }
-   
+
 #nav-button svg
 {
 	transition: y .3s;
@@ -66,12 +66,12 @@ nav .nav-container
 	top:0;
 	text-align:left;
 	background: -webkit-linear-gradient(120deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
-    background: -o-linear-gradient(120deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
-    background: linear-gradient(210deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
-    background-size: 600% 600%;
-    -webkit-animation: couleur 24s ease infinite;
-    -moz-animation: couleur 24s ease infinite;
-    animation: couleur 24s ease infinite;
+	background: -o-linear-gradient(120deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
+	background: linear-gradient(210deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
+	background-size: 600% 600%;
+	-webkit-animation: couleur 24s ease infinite;
+	-moz-animation: couleur 24s ease infinite;
+	animation: couleur 24s ease infinite;
 	overflow: hidden;
 }
 nav .nav-container .nav-vertical
@@ -316,42 +316,79 @@ nav .nav-container .website a
 
 /* Class Rotate - .rotated */
 .rotated {
-    -webkit-transform: rotate(45deg);  /* Chrome, Safari 3.1+ */
-    -moz-transform: rotate(45deg);  /* Firefox 3.5-15 */
-    -ms-transform: rotate(45deg);  /* IE 9 */
-    -o-transform: rotate(45deg);  /* Opera 10.50-12.00 */
-    transform: rotate(45deg);  /* Firefox 16+, IE 10+, Opera 12.10+ */
+	-webkit-transform: rotate(45deg);  /* Chrome, Safari 3.1+ */
+	-moz-transform: rotate(45deg);  /* Firefox 3.5-15 */
+	-ms-transform: rotate(45deg);  /* IE 9 */
+	-o-transform: rotate(45deg);  /* Opera 10.50-12.00 */
+	transform: rotate(45deg);  /* Firefox 16+, IE 10+, Opera 12.10+ */
 }
 
+/* Media Queries (700px) */
+@media screen and (max-width: 700px) {
+	#content
+	{
+		padding:0px 0px 0px 0px;
+		background:pink;
+	}
+	nav .nav-container
+	{
+		max-width: none;
+	}
+	body
+	{
+		display: none;
+	}
+	nav .nav-container .nav-vertical blockquote
+	{
+		margin:0px 0 42px 0;
+		font-size: 32px;
+	}
+	nav .nav-container .nav-vertical h1
+	{
+		font-size:70px;
+	}
+	nav .nav-container .nav-vertical .social
+	{
+		font-size:32px;
+	}
+	nav .nav-container .website
+	{
+		font-size:32px;
+	}
+	nav .nav-container .nav-vertical
+	{
+		top:140px;
+	}
+}
 
 
 /* Animation couleur pour fond nav */
 @-webkit-keyframes couleur {
-    0%,
-    100% {
-        background-position: 68% 0
-    }
-    50% {
-        background-position: 33% 100%
-    }
+	0%,
+	100% {
+		background-position: 68% 0
+	}
+	50% {
+		background-position: 33% 100%
+	}
 }
 
 @-moz-keyframes couleur {
-    0%,
-    100% {
-        background-position: 68% 0
-    }
-    50% {
-        background-position: 33% 100%
-    }
+	0%,
+	100% {
+		background-position: 68% 0
+	}
+	50% {
+		background-position: 33% 100%
+	}
 }
 
 @keyframes couleur {
-    0%,
-    100% {
-        background-position: 68% 0
-    }
-    50% {
-        background-position: 33% 100%
-    }
+	0%,
+	100% {
+		background-position: 68% 0
+	}
+	50% {
+		background-position: 33% 100%
+	}
 }
