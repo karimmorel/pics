@@ -324,40 +324,65 @@ nav .nav-container .website a
 }
 
 /* Media Queries (700px) */
-@media screen and (max-width: 700px) {
+
+@media only screen and (max-width: 768px){
 	#content
 	{
-		padding:0px 0px 0px 0px;
-		background:pink;
+		padding:inherit;
 	}
-	nav .nav-container
+	.container
 	{
-		max-width: none;
+		padding:12px;
 	}
-	body
+	#nav-button
 	{
-		display: none;
+		background:rgba(255,255,255,.4);
+		padding:16px;
+		border-radius:100%;
+		top:22px;
+		left:22px;
 	}
-	nav .nav-container .nav-vertical blockquote
+	.loader
 	{
-		margin:0px 0 42px 0;
-		font-size: 32px;
+		margin-bottom:12px;
+		width:64px;
+		height:64px;
+		line-height:64px;
+		font-size:36px;
+		margin-top:12px;
 	}
-	nav .nav-container .nav-vertical h1
+	.text-container
 	{
-		font-size:70px;
+		top:0;
+		height:100%;
 	}
-	nav .nav-container .nav-vertical .social
+	.text-container h1
 	{
-		font-size:32px;
+		font-size:14px;
+		margin:22px 0 8px 0;
 	}
-	nav .nav-container .website
+	.text-container p
 	{
-		font-size:32px;
+		font-size:12px;
+		line-height:18px;
+		margin:6px 0 4px 0;
 	}
-	nav .nav-container .nav-vertical
+	.text-container blockquote
 	{
-		top:140px;
+		position:absolute;
+		bottom:4px;
+		left:6px;
+		font-size:12px;
+	}
+	.text-container .signature
+	{
+		bottom:4px;
+		right:6px;
+		font-size:12px;
+	}
+	.plus
+	{
+		line-height:inherit;
 	}
 }
 
