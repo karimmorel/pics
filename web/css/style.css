@@ -366,6 +366,7 @@ nav .nav-container .website a
 		font-size:12px;
 		line-height:18px;
 		margin:6px 0 4px 0;
+		padding: 0 12px 0 12px
 	}
 	.text-container blockquote
 	{
@@ -383,6 +384,10 @@ nav .nav-container .website a
 	.plus
 	{
 		line-height:inherit;
+	}
+	.plus-span-container span
+	{
+		line-height:50px;
 	}
 }
 
