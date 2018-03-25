@@ -54,7 +54,7 @@
 				</div>
 			</div>
 			{% if pic.type|split('.')|last == 'jpeg' or pic.type|split('.')|last == 'png' %}
-			<img src="{{ asset('uploads/non_publiee/' ~ pic.type) }}"/>
+			<img src="{{ asset('uploads/non_publiee/' ~ pic.type) }}" alt="{{ pic.shortname }}"/>
 			{% elseif  pic.type|split('.')|last == 'mp4' or pic.type|split('.')|last == 'gif' %}
 			<video controls autoplay>
 				<source src="{{ asset('uploads/non_publiee/' ~ pic.type) }}" type="video/mp4">
