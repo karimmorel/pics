@@ -3,8 +3,19 @@
 <head>
     {% block analytics %}{% endblock %}
     <meta charset="UTF-8" />
-    <title>{% block title %}Souvenirs de route{% endblock %} | Karim Morel</title>
+    <title>{% block title %}Accueil | Souvenirs de route{% endblock %} | Karim Morel</title>
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Souvenirs de route est un site où une nouvelle photo est publiée chaque jour. Je travaille en voyageant et j'en profite pour découvrir le monde. Je garde une trace de mes découvertes en ajoutant une nouvelle image de mon parcours chaque jour." />
+    <link rel="canonical" href="https://souvenirsderoute.fr/" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Accueil | Souvenirs de route | Karim Morel" />
+    <meta property="og:description" content="Je travaille en voyageant et j'en profite pour découvrir le monde." />
+    <meta property="og:url" content="https://souvenirsderoute.fr/" />
+    <meta property="og:site_name" content="SouvenirsDeRoute" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Je travaille en voyageant et j'en profite pour découvrir le monde." />
+    <meta name="twitter:title" content="Accueil | Souvenirs de route | Karim Morel" />
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
