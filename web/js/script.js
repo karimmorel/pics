@@ -166,7 +166,9 @@ $('#content').on("click",".plus",function(e){
 // Function Load pics when scroll down
 
 $('.loader').click(function(){
+	var thisclass = $(this).attr("class");
 	var picsCount = $('.container').length;
+	if(thisclass == "loader")
 	loadOlderPics(picsCount);
 });
 
@@ -176,12 +178,15 @@ function loadOlderPics(number)
 {
 	if(number > 0)
 	{
+		$('.loader').addClass('loading lds-ripple');
+		$('.loader').html('<div></div><div></div>');
+		$('.loader').removeClass('loader');
 		$.ajax({
 			url : 'http://localhost/pics/web/app_dev.php/loadeightfollowingpics/'+number,
 			type : 'GET',
 			dataType : 'json',
 			success : function(code_html, statut){
-			var loop = 0;
+				var loop = 0;
 				$.each(code_html,function(){
 					loop++;
 					$('#content').append('<div class="container">'+
@@ -204,6 +209,9 @@ function loadOlderPics(number)
 						'</div>'+
 						'</div>');
 				});
+				$('.loading').addClass('loader');
+				$('.loading').html('+');
+				$('.loading').removeClass('loading lds-ripple');
 				if(loop < 6)
 				{
 					$('.loader').remove();
