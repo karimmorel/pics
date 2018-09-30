@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<h1>{{ content }}</h1>
+	<p>Affiche moi les {{ photo.number | raw }} premières photos du voyage.</p>
+	<p>Retourne vers le vrai site grâce à <a href="{{ path('home') }}">ce lien !</a></p>
+	<p>Il existe ce cookie ??  {{ cookie }}</p>
+	<p>Afficher le personnage en session ? {{ app.session.get('personnage').prenom | title }} {{ app.session.get('personnage').nom | title }}</p>
+	{% for message in app.session.flashbag.get('message') %}
+	<p>Afficher un Flashbag maintenant : {{ message }}</p>
+	{% endfor %}
+
+	<br/>
+	<br/>
+	<br/>
+
+	<p>Nous nous trouvons dans l'environnement {{ app.environment }}</p>
+	{% if app.debug %}<p>Le mode débug est activé.</p>{% endif %}
+	<p>Affiche moi l'utilisateur courant : {{ app.user }}</p>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<p>Site web proposé par : {{ author }}</p>
+</body>
+</html>

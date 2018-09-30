@@ -1,0 +1,72 @@
+{% extends '::base.html.twig' %}
+{% block analytics %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84217002-2"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-84217002-2');
+</script>
+{% endblock %}
+{% block body %}
+<div id="nav-button">
+	<svg version="1.1" id="calque-nav" fill="#333" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 611 611" style="enable-background:new 0 0 611 611;" xml:space="preserve">
+	<rect id="rect-one" x="-0.4" y="404.5" width="611.3" height="98.5" transform="matrix(1.00000000, 0.00000000, 0.00000000, 1.00000000, 0, 0)"/>
+	<rect id="rect-two" x="-0.4" y="109" width="611.3" height="98.5"/>
+</svg>
+</div>
+<nav>
+	<div class="nav-container">
+		<div class="nav-vertical">
+			<h2>Karim Morel</h2>
+			<blockquote class="erased">- Souvenirs d'Asie.</blockquote>
+			<blockquote class="erased">Une nouvelle photo est publiée chaque jour sur ce site qui reprend mes souvenirs de voyage et les moments forts passés à l'étranger.</blockquote>
+			<div class="social">
+				<div class="link-container"><div class="sep"></div><a href="https://www.youtube.com/channel/UCbFB4IHyLqwcz_VVKAaJbaw/videos" target="_blank">Youtube</a></div>
+				<div class="link-container"><div class="sep"></div><a href="https://jdecalle.fr/" target="_blank">Blog</a></div>
+				<div class="link-container"><div class="sep"></div><a href="https://www.instagram.com/insta_rimka/" target="_blank">Instagram</a></div>
+			</div>
+		</div>
+		<div class="website">
+			<a href="http://www.karimmorel.fr" target="_blank">karimmorel.fr</a>
+		</div>
+	</div>
+</nav>
+<div id="content">
+	{% for pic in pics %}
+	<div class="container">
+		<div class="shadow-div">
+			<div class="plus">
+				<div class="plus-span-container">
+					<span>
+						+
+					</span>
+				</div>
+				<div class="text-container">
+					<h1>{{ pic.name }}</h1>
+					<div class="sep"></div>
+					<p>{{ pic.description }}</p>
+					<blockquote>{{ pic.region }} - {{ pic.picdate|date('Y') }}</blockquote>
+					<span class="signature">{{ pic.theme | lower}}_</span>
+				</div>
+			</div>
+			{% if pic.type|split('.')|last == 'jpeg' or pic.type|split('.')|last == 'png' %}
+			<img src="{{ asset('uploads/non_publiee/' ~ pic.type) }}" alt="{{ pic.shortname }}"/>
+			{% elseif  pic.type|split('.')|last == 'mp4' or pic.type|split('.')|last == 'gif' %}
+			<video controls autoplay>
+				<source src="{{ asset('uploads/non_publiee/' ~ pic.type) }}" type="video/mp4">
+				</video>
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<div class="loader-container">
+		<div class="loader">
+			+
+		</div>
+	</div>
+	{% endblock %}

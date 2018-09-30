@@ -24,7 +24,7 @@ class unpublishedPicsController extends Controller
 
         $unpublishedPics = $em->getRepository('AppBundle:unpublishedPics')->findAll();
 
-        return $this->render('unpublishedpics/index.html.twig', array(
+        return $this->render('AppBundle:backoffice:index.html.twig', array(
             'unpublishedPics' => $unpublishedPics,
         ));
     }
@@ -63,7 +63,7 @@ class unpublishedPicsController extends Controller
             return $this->redirectToRoute('unpublishedpics_show', array('id' => $unpublishedPic->getId()));
         }
 
-        return $this->render('unpublishedpics/new.html.twig', array(
+        return $this->render('AppBundle:backoffice:new.html.twig', array(
             'unpublishedPic' => $unpublishedPic,
             'form' => $form->createView(),
         ));
@@ -77,7 +77,7 @@ class unpublishedPicsController extends Controller
     {
         $deleteForm = $this->createDeleteForm($unpublishedPic);
 
-        return $this->render('unpublishedpics/show.html.twig', array(
+        return $this->render('AppBundle:backoffice:show.html.twig', array(
             'unpublishedPic' => $unpublishedPic,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -107,7 +107,7 @@ class unpublishedPicsController extends Controller
             return $this->redirectToRoute('unpublishedpics_edit', array('id' => $unpublishedPic->getId()));
         }
 
-        return $this->render('unpublishedpics/edit.html.twig', array(
+        return $this->render('AppBundle:backoffice:edit.html.twig', array(
             'unpublishedPic' => $unpublishedPic,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -154,7 +154,7 @@ class unpublishedPicsController extends Controller
 
         $unpublishedPics = $em->getRepository('AppBundle:unpublishedPics')->findAll();
 
-        return $this->render('unpublishedpics/index.html.twig', array(
+        return $this->render('AppBundle:backoffice:index.html.twig', array(
             'unpublishedPics' => $unpublishedPics,
         ));
     }

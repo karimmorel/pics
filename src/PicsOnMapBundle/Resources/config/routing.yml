@@ -1,0 +1,6 @@
+POMB_world_map:
+    path:     /{number}/{_locale}
+    defaults: { _controller: PicsOnMapBundle:WorldMap:index, _locale: fr}
+    requirements:
+        number:    \d{0,4}
+        _locale: fr|en

@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@PicsOnMapBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -27,7 +28,7 @@ framework:
     session:
         # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id: session.handler.native_file
-        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+        save_path: "%kernel.root_dir%/sessions"
     fragments: ~
     http_method_override: true
     assets: ~
@@ -38,6 +39,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        author: '%author%'
 
 # Doctrine Configuration
 doctrine:
@@ -87,3 +90,5 @@ fos_rest:
 
 sensio_framework_extra:
     view: { annotations: false }
+
+

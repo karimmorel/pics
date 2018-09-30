@@ -1,0 +1,102 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" />
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>{{ unpublishedPic.name }}</h1>
+    <br/>
+    <a href="{{ path('unpublishedpics_index') }}"><button type="button" class="btn btn-primary">Retourner à la liste</button></a>
+    <a href="{{ path('unpublishedpics_edit', { 'id': unpublishedPic.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a>
+    <br/>
+    <br/>
+    <br/>
+
+    <table class="table table-bordered table-sm">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ unpublishedPic.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ unpublishedPic.name }}</td>
+            </tr>
+            <tr>
+                <th>Shortname</th>
+                <td>{{ unpublishedPic.shortName }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ unpublishedPic.description }}</td>
+            </tr>
+            <tr>
+                <th>Shortdescription</th>
+                <td>{{ unpublishedPic.shortdescription }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ unpublishedPic.country }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ unpublishedPic.region }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ unpublishedPic.city }}</td>
+            </tr>
+            <tr>
+                <th>Theme</th>
+                <td>{{ unpublishedPic.theme }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td><img src="{{ asset('uploads/non_publiee/' ~ unpublishedPic.type) }}" width="500"/></td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ unpublishedPic.author }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ unpublishedPic.subject }}</td>
+            </tr>
+            <tr>
+                <th>Lat</th>
+                <td>{{ unpublishedPic.lat }}</td>
+            </tr>
+            <tr>
+                <th>Lng</th>
+                <td>{{ unpublishedPic.lng }}</td>
+            </tr>
+            <tr>
+                <th>Gmapslink</th>
+                <td>{{ unpublishedPic.gmapslink }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if unpublishedPic.createdAt %}{{ unpublishedPic.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if unpublishedPic.updatedAt %}{{ unpublishedPic.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Picdate</th>
+                <td>{% if unpublishedPic.picdate %}{{ unpublishedPic.picdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Backgroundcolor</th>
+                <td>{{ unpublishedPic.backgroundcolor }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {{ form_start(delete_form) }}
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    {{ form_end(delete_form) }}
+</div>
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('css/bootstrap/js/bootstrap.min.js') }}"></script>
+{% endblock %}
