@@ -14,6 +14,9 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class unpublishedPicsController extends Controller
 {
+
+
+    static protected $currentPicture = 0;
     /**
      * Lists all unpublishedPic entities.
      *
@@ -181,7 +184,7 @@ class unpublishedPicsController extends Controller
     }
 
 
-    public function eightFollowingPhotosAction(Request $request)
+    public function FollowingPhotosAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 

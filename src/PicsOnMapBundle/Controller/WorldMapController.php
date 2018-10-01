@@ -36,6 +36,9 @@ class WorldMapController extends Controller
 
 		$rendu = $this->render('PicsOnMapBundle:HelloWorld:helloworld.html.twig', $paramArray);
 
+		$mailer = $this->get('mailer');
+
+
 		return $rendu;
 	}
 }

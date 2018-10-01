@@ -14,9 +14,10 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
-        $nmbrPics = 7;
+        $nmbrPics = $this->container->getParameter('loading_pics');
 
         $em = $this->getDoctrine()->getManager();
+        
         $published_pics = $em->getRepository("AppBundle\Entity\unpublishedPics")->findBy(array('displayPic' => 1),array('id' => 'DESC'),$nmbrPics);
 
         return $this->render('AppBundle:home:index.html.twig', array('pics' => $published_pics));

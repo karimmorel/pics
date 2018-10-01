@@ -13,6 +13,6 @@ lastpublishedpics:
     methods: GET
 
 loadeightfollowingpics:
-    path: /loadeightfollowingpics/{lastpic}
-    defaults: { _controller: "AppBundle:unpublishedPics:eightFollowingPhotos" }
+    path: /loadfollowingpics/{lastpic}
+    defaults: { _controller: "AppBundle:unpublishedPics:FollowingPhotos" }
     methods: GET

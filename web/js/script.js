@@ -182,7 +182,7 @@ function loadOlderPics(number)
 		$('.loader').html('<div></div><div></div>');
 		$('.loader').removeClass('loader');
 		$.ajax({
-			url : 'http://localhost/pics/web/app_dev.php/loadeightfollowingpics/'+number,
+			url : 'http://localhost/pics/web/app_dev.php/loadfollowingpics/'+number,
 			type : 'GET',
 			dataType : 'json',
 			success : function(code_html, statut){
