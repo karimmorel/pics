@@ -1,0 +1,21 @@
+{{ form_start(form, {
+	'attr': { 'class': 'searchbar-form', 'action': path('searchbarrequest')}
+}) }}
+
+{% if search %}
+
+{{ form_widget(form.search, {
+	'attr': { 'class': 'searchbar', 'placeholder': 'Fouiner dans les photos..', 'value' : search}
+}) }}
+
+{% else %}
+
+{{ form_widget(form.search, {
+	'attr': { 'class': 'searchbar', 'placeholder': 'Fouiner dans les photos..'}
+}) }}
+
+{% endif %}
+
+<button id="search-button" type="submit"><i class="fa fa-search"></i></button>
+
+{{ form_end(form) }}

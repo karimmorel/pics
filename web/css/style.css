@@ -281,6 +281,70 @@ nav .nav-container .website a
 
 }
 
+/* Search Bar */
+
+.searchbar-form, #searchbar
+{
+	width:100%;
+	box-sizing: border-box;
+	display:flex;
+}
+.searchbar-form
+{
+	flex:30;
+}
+#searchbar
+{
+	padding:40px 40px 0 40px;
+}
+#home-link
+{
+	text-decoration:none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color:white;
+	border:1px solid #a29bfe;
+	border-radius:0px;
+	border-right:none;
+	flex:2;
+	font-size:1.5em;
+	background:#a29bfe;
+}
+#home-link i
+{
+	width:100%;
+}
+#search-button
+{
+	border:1px solid rgb(216, 216, 216);
+	border-radius:0;
+	border-left:none;
+}
+.searchbar-form input
+{
+	flex:20;
+	height:40px;
+	outline:none;
+	font-size:1.6em;
+	padding:6px 0 6px 16px;
+	color:#6c5ce7;
+	font-weight:400;
+	border:1px solid rgb(216, 216, 216);
+	border-left:none;
+}
+.searchbar-form button
+{
+	flex:1;
+	font-size:1.5em;
+	box-shadow: none;
+	outline:none;
+	border-color:rgb(216, 216, 216);
+	box-sizing: border-box;
+	color:#6c5ce7;
+}
+
+
 /* Loader */
 
 .loader
@@ -318,36 +382,36 @@ nav .nav-container .website a
 }
 
 .lds-ripple {
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
+	display: inline-block;
+	position: relative;
+	width: 64px;
+	height: 64px;
 }
 .lds-ripple div {
-  position: absolute;
-  border: 4px solid #fff;
-  opacity: 1;
-  border-radius: 50%;
-  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+	position: absolute;
+	border: 4px solid #fff;
+	opacity: 1;
+	border-radius: 50%;
+	animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 .lds-ripple div:nth-child(2) {
-  animation-delay: -0.5s;
+	animation-delay: -0.5s;
 }
 @keyframes lds-ripple {
-  0% {
-    top: 28px;
-    left: 28px;
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
-  100% {
-    top: -1px;
-    left: -1px;
-    width: 58px;
-    height: 58px;
-    opacity: 0;
-  }
+	0% {
+		top: 28px;
+		left: 28px;
+		width: 0;
+		height: 0;
+		opacity: 1;
+	}
+	100% {
+		top: -1px;
+		left: -1px;
+		width: 58px;
+		height: 58px;
+		opacity: 0;
+	}
 }
 
 

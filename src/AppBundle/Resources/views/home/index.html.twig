@@ -21,9 +21,10 @@
 <nav>
 	<div class="nav-container">
 		<div class="nav-vertical">
-			<h2>Karim Morel</h2>
-			<blockquote class="erased">- Souvenirs d'Asie.</blockquote>
-			<blockquote class="erased">Une nouvelle photo est publiée chaque jour sur ce site qui reprend mes souvenirs de voyage et les moments forts passés à l'étranger.</blockquote>
+			<h2>SDR</h2>
+			<blockquote class="erased">Souvenirs de Route</blockquote>
+			<blockquote class="erased">Pendant mes voyages, j'ajoute une nouvelle photo tous les jours, pour garder en souvenir ces moments déjà passés.</blockquote>
+			<blockquote class="erased">{{ countpics }} photos sur le site.</blockquote>
 			<div class="social">
 				<div class="link-container"><div class="sep"></div><a href="https://www.youtube.com/channel/UCbFB4IHyLqwcz_VVKAaJbaw/videos" target="_blank">Youtube</a></div>
 				<div class="link-container"><div class="sep"></div><a href="https://jdecalle.fr/" target="_blank">Blog</a></div>
@@ -36,6 +37,17 @@
 	</div>
 </nav>
 <div id="content">
+	<div id="searchbar">
+		<a id="home-link" href="{{ path('home') }}"><i class="fa fa-home"></i></a>
+		{% if search is defined %}
+		{{ render(controller('AppBundle:searchBar:renderSearchBar', {'search' : search})) }}
+		{% else %}
+		{{ render(controller('AppBundle:searchBar:renderSearchBar')) }}
+		{% endif %}
+	</div>
+	{% if pics is empty %}
+		<h2>Aucun Résultat..</h2>
+	{% else %}
 	{% for pic in pics %}
 	<div class="container">
 		<div class="shadow-div">
@@ -63,10 +75,13 @@
 			</div>
 		</div>
 		{% endfor %}
+		{% endif %}
 	</div>
+	{% if not search is defined %}
 	<div class="loader-container">
 		<div class="loader">
 			+
 		</div>
 	</div>
+	{% endif %}
 	{% endblock %}

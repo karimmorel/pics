@@ -14,9 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class unpublishedPicsController extends Controller
 {
-
-
-    static protected $currentPicture = 0;
     /**
      * Lists all unpublishedPic entities.
      *
@@ -39,9 +36,7 @@ class unpublishedPicsController extends Controller
     public function newAction(Request $request)
     {
         $unpublishedPic = new Unpublishedpics();
-        $unpublishedPic->setPicDate(new \DateTime('now'));
-        $unpublishedPic->setAuthor('Karim Morel');
-        $unpublishedPic->setBackgroundColor('000');
+        
         $form = $this->createForm('AppBundle\Form\unpublishedPicsType', $unpublishedPic);
         $form->handleRequest($request);
 
@@ -52,8 +47,6 @@ class unpublishedPicsController extends Controller
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             //Défini le nouveau nom à l'objet unpublishedPic pour le sauvegarder en BDD
             $unpublishedPic->setType($fileName);
-            $unpublishedPic->setCreatedAt(new \DateTime('now'));
-            $unpublishedPic->setUpdatedAt(new \DateTime('now'));
             $em = $this->getDoctrine()->getManager();
             $em->persist($unpublishedPic);
             $em->flush();
@@ -189,7 +182,7 @@ class unpublishedPicsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $displayed = 1;
-        $followingPhotos = 7;
+        $followingPhotos = $this->container->getParameter('loading_pics');
 
         $currentLastPhoto = $request->get('lastpic');
 
@@ -208,8 +201,6 @@ class unpublishedPicsController extends Controller
         return $response;
 
     }
-
-
     /**
      * Creates a form to delete a unpublishedPic entity.
      *

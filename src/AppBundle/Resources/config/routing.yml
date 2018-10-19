@@ -16,3 +16,8 @@ loadeightfollowingpics:
     path: /loadfollowingpics/{lastpic}
     defaults: { _controller: "AppBundle:unpublishedPics:FollowingPhotos" }
     methods: GET
+
+searchbarrequest:
+    path:  /search
+    defaults:  { _controller: "AppBundle:searchBar:getSearchBarResult"}
+    methods: POST

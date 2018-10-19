@@ -20,6 +20,8 @@ class DefaultController extends Controller
         
         $published_pics = $em->getRepository("AppBundle\Entity\unpublishedPics")->findBy(array('displayPic' => 1),array('id' => 'DESC'),$nmbrPics);
 
-        return $this->render('AppBundle:home:index.html.twig', array('pics' => $published_pics));
+        $countpics = $em->getRepository("AppBundle\Entity\unpublishedPics")->getPicsCount();
+
+        return $this->render('AppBundle:home:index.html.twig', array('pics' => $published_pics, 'countpics' => $countpics));
     }
 }

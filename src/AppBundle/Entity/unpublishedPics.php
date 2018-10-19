@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="unpublished_pics")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\unpublishedPicsRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class unpublishedPics
 {
@@ -153,6 +154,17 @@ class unpublishedPics
      * @ORM\Column(name="display_pic", type="boolean")
      */
     private $displayPic;
+
+
+
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTime('now'));
+        $this->setUpdatedAt(new \DateTime('now'));
+        $this->setPicDate(new \DateTime('now'));
+        $this->setAuthor('Karim Morel');
+        $this->setBackgroundColor('000');
+    }
 
 
     /**
@@ -620,4 +632,16 @@ class unpublishedPics
     {
         return $this->displayPic;
     }
+
+
+
+    /**
+    *   @ORM\PostRemove
+    */
+    public function deletePicFile()
+    {
+        $pic = $this->getType();
+        unlink('uploads/non_publiee/'.$pic);
+    }
+
 }
