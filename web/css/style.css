@@ -65,9 +65,9 @@ nav .nav-container
 	left:0;
 	top:0;
 	text-align:left;
-	background: -webkit-linear-gradient(120deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
-	background: -o-linear-gradient(120deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
-	background: linear-gradient(210deg, #00b4cf, #00b4cf, #2ecc71, #f1c40f, #f1c40f);
+	background: -webkit-linear-gradient(120deg,#6c5ce7, #a29bfe, #00cec9, #a29bfe, #fab1a0, #ff7675, #d63031);
+	background: -o-linear-gradient(120deg,#6c5ce7, #a29bfe, #00cec9, #a29bfe, #fab1a0, #ff7675, #d63031);
+	background: linear-gradient(210deg,#6c5ce7, #a29bfe, #00cec9, #a29bfe, #fab1a0, #ff7675, #d63031);
 	background-size: 600% 600%;
 	-webkit-animation: couleur 24s ease infinite;
 	-moz-animation: couleur 24s ease infinite;
@@ -304,12 +304,12 @@ nav .nav-container .website a
 	align-items: center;
 	justify-content: space-between;
 	color:white;
-	border:1px solid #a29bfe;
+	border:1px solid #30336b;
 	border-radius:0px;
 	border-right:none;
 	flex:2;
 	font-size:1.5em;
-	background:#a29bfe;
+	background:#30336b;
 }
 #home-link i
 {
@@ -328,7 +328,7 @@ nav .nav-container .website a
 	outline:none;
 	font-size:1.6em;
 	padding:6px 0 6px 16px;
-	color:#6c5ce7;
+	color:#30336b;
 	font-weight:400;
 	border:1px solid rgb(216, 216, 216);
 	border-left:none;
@@ -341,7 +341,7 @@ nav .nav-container .website a
 	outline:none;
 	border-color:rgb(216, 216, 216);
 	box-sizing: border-box;
-	color:#6c5ce7;
+	color:#686de0;
 }
 
 
