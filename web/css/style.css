@@ -504,6 +504,10 @@ nav .nav-container .website a
 	{
 		line-height:50px;
 	}
+	#searchbar
+	{
+		display:none;
+	}
 }
 
 
