@@ -52,6 +52,7 @@ class unpublishedPicsRepository extends \Doctrine\ORM\EntityRepository
 	{
 		return $this->createQueryBuilder('p')
 		->select('COUNT(p)')
+		->where('p.displayPic = 1')
 		->getQuery()
 		->getSingleScalarResult();
 	}
