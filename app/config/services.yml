@@ -33,3 +33,6 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    ToolsServices\Services\:
+        resource:  '../../src/ToolsServices/Services/*'

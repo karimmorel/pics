@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use ToolsServices\Services\StringParserService;
+
 /**
  * unpublishedPicsRepository
  *
@@ -13,18 +15,21 @@ class unpublishedPicsRepository extends \Doctrine\ORM\EntityRepository
 
 	public function searchBarRequest($word)
 	{
+		$stringParserService = new StringParserService();
 
 		$qb = $this->createQueryBuilder('u');
 		$nospace = str_replace(' ', '-', $word);
-		$nodangerous = preg_replace('/[^A-Za-z0-9\-]/', '', $nospace);
+		$nodangerous = preg_replace('/[^A-zÀ-ú0-9\-]/', '', $nospace);
 		$words = explode('-', $nodangerous);
 
 		$ifValid = 0;
 
-		foreach($words as $w)
+		foreach($words as $word)
 		{
-			if(!empty($w))
+			if(!empty($word))
 			{
+				$w = $stringParserService->stripAccents($word);
+
 				$qb->orWhere('u.name LIKE :word'.$w)
 				->orWhere('u.description LIKE :word'.$w)
 				->orWhere('u.city LIKE :word'.$w)
@@ -56,6 +61,8 @@ class unpublishedPicsRepository extends \Doctrine\ORM\EntityRepository
 		->getQuery()
 		->getSingleScalarResult();
 	}
+
+
 
 
 }
