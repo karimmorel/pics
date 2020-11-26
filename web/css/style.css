@@ -290,7 +290,7 @@ nav .nav-container #pic-counter
 
 #searchbar
 {
-	width:calc(80%);
+	width:calc(80% - 12px);
 	position:relative;
 	padding:0 4px 0 6px;
 	margin:auto;
@@ -495,10 +495,6 @@ nav .nav-container #pic-counter
 	.plus-span-container span
 	{
 		line-height:50px;
-	}
-	#searchbar
-	{
-		display:none;
 	}
 }
 
