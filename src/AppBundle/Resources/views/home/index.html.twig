@@ -21,31 +21,35 @@
 <nav>
 	<div class="nav-container">
 		<div class="nav-vertical">
+
+		<!-- Search bar in other template -->
+
 			<h2>hello.</h2>
-			<blockquote class="erased">Souvenirs de Route</blockquote>
-			<blockquote class="erased">Pendant mes voyages, j'ajoute une nouvelle photo tous les jours, pour garder en souvenir ces moments déjà passés.</blockquote>
-			<blockquote class="erased">{{ countpics }} photos sur le site.</blockquote>
+			
+			<blockquote id="pic-counter" class="erased">{{ countpics }} photos sur le site.</blockquote>
+			
 			<div class="social">
 				<div class="link-container"><div class="sep"></div><a href="https://www.youtube.com/channel/UCbFB4IHyLqwcz_VVKAaJbaw/videos" target="_blank">Youtube</a></div>
 				<div class="link-container"><div class="sep"></div><a href="https://broumiaou.fr/" target="_blank">Broumiaou</a></div>
+				<div class="link-container"><div class="sep"></div><a href="https://www.karimmorel.fr" target="_blank">Portfolio</a></div>
 			</div>
+
+			
 		</div>
 		<div class="website">
-			<a href="https://www.karimmorel.fr" target="_blank">karimmorel.fr</a>
+		<div id="searchbar">
+				{% if search is defined %}
+					{{ render(controller('AppBundle:searchBar:renderSearchBar', {'search' : search})) }}
+				{% else %}
+					{{ render(controller('AppBundle:searchBar:renderSearchBar')) }}
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </nav>
 <div id="content">
-	<div id="searchbar">
-		<a id="home-link" href="{{ path('home') }}"><i class="fa fa-home"></i></a>
-		{% if search is defined %}
-		{{ render(controller('AppBundle:searchBar:renderSearchBar', {'search' : search})) }}
-		{% else %}
-		{{ render(controller('AppBundle:searchBar:renderSearchBar')) }}
-		{% endif %}
-	</div>
 	{% if pics is empty %}
-		<h2>Aucun Résultat..</h2>
+		<h2>Aucune photo ne correspond à votre recherche.</h2>
 	{% else %}
 	{% for pic in pics %}
 	<div class="container">
