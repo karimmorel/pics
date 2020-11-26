@@ -77,8 +77,8 @@ nav .nav-container
 nav .nav-container .nav-vertical
 {
 	position:absolute;
-	width:100%;
-	top:116px;
+	width:calc(100% - 42px);
+	top:100px;
 	left:0;
 	padding:0 0 0 42px;
 	transition:all .6s;
@@ -115,6 +115,7 @@ nav .nav-container .nav-vertical .social
 	margin:auto;
 	font-size:16px;
 	opacity:0;
+	margin-bottom: 24px;
 }
 nav .nav-container .nav-vertical .social a
 {
@@ -155,6 +156,10 @@ nav .nav-container .website a
 	color:white;
 	padding:0 4px 0 6px;
 	text-decoration: none;
+}
+nav .nav-container #pic-counter
+{
+	margin-top:24px;
 }
 
 
@@ -283,65 +288,52 @@ nav .nav-container .website a
 
 /* Search Bar */
 
-.searchbar-form, #searchbar
-{
-	width:100%;
-	box-sizing: border-box;
-	display:flex;
-}
-.searchbar-form
-{
-	flex:30;
-}
 #searchbar
 {
-	padding:40px 40px 0 40px;
+	width:calc(80% - 12px);
+	position:relative;
+	padding:0 4px 0 6px;
+	margin:auto;
+	margin-bottom:24px;
+	border:1px solid white;
+	border-radius:12px;
+	background:none;
 }
 #home-link
 {
-	text-decoration:none;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	flex:1;
 	color:white;
-	border:1px solid #30336b;
-	border-radius:0px;
-	border-right:none;
-	flex:2;
-	font-size:1.5em;
-	background:#30336b;
+	text-align: center;
+	height:100%;
+	margin:auto;
 }
-#home-link i
+.searchbar-form
 {
 	width:100%;
+	display:flex;
+}
+#form_search
+{
+	background:none;
+	border:none;
+	padding:0;
+	outline:none;
+	flex:9;
+	color:white;
+	font-size:16px;
+	padding:8px;
+}
+#form_search::placeholder
+{
+	color:white;
 }
 #search-button
 {
-	border:1px solid rgb(216, 216, 216);
-	border-radius:0;
-	border-left:none;
-}
-.searchbar-form input
-{
-	flex:20;
-	height:40px;
+	flex :1;
+	background:none;
+	color:white;
 	outline:none;
-	font-size:1.6em;
-	padding:6px 0 6px 16px;
-	color:#30336b;
-	font-weight:400;
-	border:1px solid rgb(216, 216, 216);
-	border-left:none;
-}
-.searchbar-form button
-{
-	flex:1;
-	font-size:1.5em;
-	box-shadow: none;
-	outline:none;
-	border-color:rgb(216, 216, 216);
-	box-sizing: border-box;
-	color:#686de0;
+	border:none;
 }
 
 
@@ -503,10 +495,6 @@ nav .nav-container .website a
 	.plus-span-container span
 	{
 		line-height:50px;
-	}
-	#searchbar
-	{
-		display:none;
 	}
 }
 

@@ -13,7 +13,7 @@
     <table class="table-bordered table-sm table">
         <thead>
             <tr>
-                <th>Image</th>
+                {# <th>Image</th> #}
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Localisation</th>
@@ -25,7 +25,7 @@
             {% for unpublishedPic in unpublishedPics %}
             {% if unpublishedPic.displayPic %}
             <tr>
-                <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}"><img src="{{ asset('uploads/non_publiee/' ~ unpublishedPic.type) }}" width="200"/></a></td>
+                {# <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}"><img src="{{ asset('uploads/pics_repository/' ~ unpublishedPic.type) }}" width="200"/></a></td> #}
                 <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}">{{ unpublishedPic.name }}</a></td>
                 <td>{{ unpublishedPic.description }}</td>
                 <td>{{ unpublishedPic.country }} - {{ unpublishedPic.region }} ( {{ unpublishedPic.city }} )</td>
@@ -57,7 +57,7 @@
             {% for unpublishedPic in unpublishedPics %}
             {% if unpublishedPic.displayPic == 0 %}
             <tr>
-                <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}"><img src="{{ asset('uploads/non_publiee/' ~ unpublishedPic.type) }}" width="200"/></a></td>
+                <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}"><img src="{{ asset('uploads/pics_repository/' ~ unpublishedPic.type) }}" width="200"/></a></td>
                 <td><a href="{{ path('unpublishedpics_show', { 'id': unpublishedPic.id }) }}">{{ unpublishedPic.name }}</a></td>
                 <td>{{ unpublishedPic.description }}</td>
                 <td>{{ unpublishedPic.country }} - {{ unpublishedPic.region }} ( {{ unpublishedPic.city }} )</td>

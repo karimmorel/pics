@@ -5,17 +5,21 @@
 {% if search %}
 
 {{ form_widget(form.search, {
-	'attr': { 'class': 'searchbar', 'placeholder': 'Fouiner dans les photos..', 'value' : search}
+	'attr': { 'class': 'searchbar', 'placeholder': 'Rechercher', 'value' : search}
 }) }}
 
 {% else %}
 
 {{ form_widget(form.search, {
-	'attr': { 'class': 'searchbar', 'placeholder': 'Fouiner dans les photos..'}
+	'attr': { 'class': 'searchbar', 'placeholder': 'Rechercher'}
 }) }}
 
 {% endif %}
 
+<!-- Annuler la recherche -->
+<a id="home-link" href="{{ path('home') }}"><i class="fa fa-times"></i></i></a>
+
+<!-- Rechercher -->
 <button id="search-button" type="submit"><i class="fa fa-search"></i></button>
 
 {{ form_end(form) }}

@@ -205,7 +205,7 @@ function loadOlderPics(number)
 						'<span class="signature">'+$(this)[0].theme+'_</span>'+
 						'</div>'+
 						'</div>'+
-						'<img src="/pics/web/uploads/non_publiee/'+$(this)[0].type+'"/>'+
+						'<img src="/pics/web/uploads/pics_repository/'+$(this)[0].type+'"/>'+
 						'</div>'+
 						'</div>');
 				});

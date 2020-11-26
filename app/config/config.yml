@@ -8,7 +8,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    dossier_image_non_publiee: '%kernel.project_dir%/web/uploads/non_publiee'
+    dossier_image_non_publiee: '%kernel.project_dir%/web/uploads/pics_repository'
 
 framework:
     #esi: ~
