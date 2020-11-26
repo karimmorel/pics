@@ -641,7 +641,7 @@ class unpublishedPics
     public function deletePicFile()
     {
         $pic = $this->getType();
-        unlink('uploads/non_publiee/'.$pic);
+        unlink('uploads/pics_repository/'.$pic);
     }
 
 }
