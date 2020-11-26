@@ -19,7 +19,7 @@ class unpublishedPicsRepository extends \Doctrine\ORM\EntityRepository
 
 		$qb = $this->createQueryBuilder('u');
 		$nospace = str_replace(' ', '-', $word);
-		$nodangerous = preg_replace('/[^A-zÀ-ú0-9\-]/', '', $nospace);
+		$nodangerous = preg_replace("/[^A-zÀ-ú0-9\-]/", '', $nospace);
 		$words = explode('-', $nodangerous);
 
 		$ifValid = 0;
