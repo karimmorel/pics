@@ -18,3 +18,5 @@
 /web/uploads/*
 /web/pics/*
 /app/sessions/*
+/.DS_Store
+/web/.DS_Store
