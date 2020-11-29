@@ -169,13 +169,14 @@ $('.loader').click(function(){
 	var thisclass = $(this).attr("class");
 	var picsCount = $('.container').length;
 	var followingPicsRoute = $('.container').data('followingpics');
+	var imageSource = $('.container').data('imagesource');
 	if(thisclass == "loader")
-	loadOlderPics(picsCount, followingPicsRoute);
+	loadOlderPics(picsCount, followingPicsRoute, imageSource);
 });
 
 
 
-function loadOlderPics(number, picsroute)
+function loadOlderPics(number, picsroute, imageSource)
 {
 	if(number > 0)
 	{
@@ -206,7 +207,7 @@ function loadOlderPics(number, picsroute)
 						'<span class="signature">'+$(this)[0].theme+'_</span>'+
 						'</div>'+
 						'</div>'+
-						'<img src="/pics/web/uploads/pics_repository/'+$(this)[0].type+'"/>'+
+						'<img src="'+imageSource+$(this)[0].type+'" alt="'+$(this)[0].short_name+'"/>'+
 						'</div>'+
 						'</div>');
 				});

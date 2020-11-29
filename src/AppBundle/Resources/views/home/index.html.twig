@@ -53,7 +53,7 @@
 		<h2>Aucune photo ne correspond à votre recherche.</h2>
 	{% else %}
 	{% for pic in pics %}
-	<div class="container" data-followingpics="{{ followingPicsRoute }}">
+	<div class="container" data-followingpics="{{ followingPicsRoute }}" data-imagesource="{{ asset('uploads/pics_repository/')}}">
 		<div class="shadow-div">
 			<div class="plus">
 				<div class="plus-span-container">
