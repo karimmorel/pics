@@ -22,6 +22,8 @@ class DefaultController extends Controller
 
         $countpics = $em->getRepository("AppBundle\Entity\unpublishedPics")->getPicsCount();
 
-        return $this->render('AppBundle:home:index.html.twig', array('pics' => $published_pics, 'countpics' => $countpics));
+        $followingPicsRoute = $this->container->getParameter('pics_route');
+
+        return $this->render('AppBundle:home:index.html.twig', array('pics' => $published_pics, 'countpics' => $countpics, 'followingPicsRoute' => $followingPicsRoute));
     }
 }

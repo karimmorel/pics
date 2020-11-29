@@ -168,13 +168,14 @@ $('#content').on("click",".plus",function(e){
 $('.loader').click(function(){
 	var thisclass = $(this).attr("class");
 	var picsCount = $('.container').length;
+	var followingPicsRoute = $('.container').data('followingpics');
 	if(thisclass == "loader")
-	loadOlderPics(picsCount);
+	loadOlderPics(picsCount, followingPicsRoute);
 });
 
 
 
-function loadOlderPics(number)
+function loadOlderPics(number, picsroute)
 {
 	if(number > 0)
 	{
@@ -182,7 +183,7 @@ function loadOlderPics(number)
 		$('.loader').html('<div></div><div></div>');
 		$('.loader').removeClass('loader');
 		$.ajax({
-			url : 'http://localhost/pics/web/app_dev.php/loadfollowingpics/'+number,
+			url : picsroute+number,
 			type : 'GET',
 			dataType : 'json',
 			success : function(code_html, statut){
