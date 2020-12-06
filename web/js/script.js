@@ -174,6 +174,10 @@ $('.loader').click(function(){
 	loadOlderPics(picsCount, followingPicsRoute, imageSource);
 });
 
+$(document).ready(function(){
+	$('#no-photo-error-container').css({'height' : $(window).height()-90, 'line-height' : $(window).height()-90+'px'});
+});
+
 
 
 function loadOlderPics(number, picsroute, imageSource)

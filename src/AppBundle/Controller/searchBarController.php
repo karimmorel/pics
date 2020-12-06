@@ -25,7 +25,9 @@ class searchBarController extends Controller
 
 		$countpics = $em->getRepository("AppBundle\Entity\unpublishedPics")->getPicsCount();
 
-		return $this->render('AppBundle:home:index.html.twig', array('pics' => $pics, 'search' => $data['search'], 'countpics' => $countpics));
+		$followingPicsRoute = $this->container->getParameter('pics_route');
+
+		return $this->render('AppBundle:home:index.html.twig', array('pics' => $pics, 'search' => $data['search'], 'countpics' => $countpics, 'followingPicsRoute' => $followingPicsRoute));
 	}
 
 	public function renderSearchBarAction($search = null)

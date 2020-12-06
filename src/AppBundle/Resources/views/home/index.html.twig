@@ -50,7 +50,9 @@
 </nav>
 <div id="content">
 	{% if pics is empty %}
-		<h2>Aucune photo ne correspond à votre recherche.</h2>
+	<div id="no-photo-error-container">
+		<h2>Je n'ai rien trouvé.</h2>
+	</div>
 	{% else %}
 	{% for pic in pics %}
 	<div class="container" data-followingpics="{{ followingPicsRoute }}" data-imagesource="{{ asset('uploads/pics_repository/')}}">
